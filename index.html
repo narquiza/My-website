@@ -81,12 +81,25 @@
       max-width: 450px;
       margin: 25px auto 0;
     }
-    .task-grid div {
+    .task-item {
+      display: block;
       background: #001100;
       border: 2px solid #00ff41;
       padding: 15px 0;
       font-size: 14px;
       font-family: monospace;
+      color: #00ff41;
+      text-decoration: none;
+      text-align: center;
+      transition: 0.2s;
+      cursor: pointer;
+    }
+    .task-item:hover {
+      background: #003300;
+      transform: scale(1.05);
+    }
+    .task-item:active {
+      transform: scale(0.95);
     }
 
     /* Gallery & Audio Grids */
@@ -184,11 +197,16 @@
 <section id="performance">
   <h2>Performance Task</h2>
   <div class="task-grid">
-    <div>Task 1</div><div>Task 2</div>
-    <div>Task 3</div><div>Task 4</div>
-    <div>Task 5</div><div>Task 6</div>
-    <div>Task 7</div><div>Task 8</div>
-    <div>Task 9</div><div>Task 10</div>
+    <a href="#" class="task-item">Task 1</a>
+    <a href="#" class="task-item">Task 2</a>
+    <a href="#" class="task-item">Task 3</a>
+    <a href="#" class="task-item">Task 4</a>
+    <a href="#" class="task-item">Task 5</a>
+    <a href="#" class="task-item">Task 6</a>
+    <a href="#" class="task-item">Task 7</a>
+    <a href="#" class="task-item">Task 8</a>
+    <a href="#" class="task-item">Task 9</a>
+    <a href="#" class="task-item">Task 10</a>
   </div>
 </section>
 
@@ -220,6 +238,9 @@
 <!-- Contact -->
 <section id="contact">
   <h2>Contact</h2>
+<!-- Contact -->
+<section id="contact">
+  <h2>Contact</h2>
   <div class="contact-box">
     <a href="mailto:arquiza.nathan1026@gmail.com">📧 Email Me</a>
     <a href="https://www.facebook.com/rey.arquiza.965" target="_blank">📘 Facebook</a>
@@ -240,7 +261,16 @@
   btn.onclick = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
+  // Click feedback for performance tasks
+  document.querySelectorAll('.task-item').forEach(item => {
+    item.addEventListener('click', e => {
+      e.preventDefault();
+      item.style.background = '#004400';
+      setTimeout(() => { item.style.background = '#001100'; }, 200);
+    });
+  });
 </script>
 
 </body>
-</html>
+  </html>
